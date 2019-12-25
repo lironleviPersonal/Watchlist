@@ -1,4 +1,5 @@
 import imdbpages.imdbSearchPage;
+import initProperties.InitTvShowFile;
 import org.testng.annotations.Test;
 import tvshow.watchListFileCreation;
 import tvshow.TvShowInfo;
@@ -6,13 +7,15 @@ import tvshow.TvShowInfo;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class AutomaticWatchList extends BaseTest {
+public class AutomaticWatchList extends BaseWebTest {
 
     private imdbSearchPage searchPage;
     private ArrayList<TvShowInfo> tvShows;
+    private InitTvShowFile watchList;
 
     @Test
     public void createWatchlist()throws IOException{
+        watchList = InitTvShowFile.setWatchList();
         tvShows = new ArrayList<>();
         searchPage = new imdbSearchPage(driver);
 
